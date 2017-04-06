@@ -5,7 +5,7 @@ import './App.css'
 import SliderNav from '../components/SliderNav'
 import Header from '../components/Header'
 import AllLaunches from './AllLaunches'
-import MyFeed from './MyFeed'
+// import MyFeed from './MyFeed'
 import Search from './Search/index.js'
 import Settings from './Settings'
 
@@ -34,7 +34,6 @@ class App extends Component {
         <Header currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}/>
         <SliderNav currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}>
           <AllLaunches limit={this.state.limit}/>
-          <MyFeed limit={this.state.limit}/>
           <Search limit={this.state.limit}/>
           <Settings limit={this.state.limit}/>
         </SliderNav>

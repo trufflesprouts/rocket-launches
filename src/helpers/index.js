@@ -61,7 +61,6 @@ const h = (function() {
         if (response.status !== 200) {
           console.log('Looks like there was a problem. Status Code: ' +
             response.status)
-          return
         }
 
         // Examine the text in the response
@@ -81,21 +80,17 @@ const h = (function() {
       if (val === 0) {
         result = '/'
       } else if (val === 1) {
-        result = '/my-feed'
-      } else if (val === 2) {
         result = '/search'
-      } else if (val === 3) {
+      } else if (val === 2) {
         result = '/settings'
       }
     } else {
       if (val === '/') {
         result = 0
-      } else if (val === '/my-feed') {
-        result = 1
       } else if (val === '/search') {
-        result = 2
+        result = 1
       } else if (val === '/settings') {
-        result = 3
+        result = 2
       }
     }
     return result
@@ -110,3 +105,22 @@ const h = (function() {
 
 
 export default h
+
+
+// if (Number.isInteger(val)) {
+//   if (val === 0) {
+//     result = '/'
+//   } else if (val === 1) {
+//     result = '/search'
+//   } else if (val === 2) {
+//     result = '/settings'
+//   }
+// } else {
+//   if (val === '/') {
+//     result = 0
+//   } else if (val === '/search') {
+//     result = 1
+//   } else if (val === '/settings') {
+//     result = 2
+//   }
+// }

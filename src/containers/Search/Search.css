@@ -1,0 +1,38 @@
+.search-panel {
+  /*padding: 1.5rem;*/
+  /*border: 1px solid #D2D2D2;*/
+  /*box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.08);*/
+  margin-bottom: 5rem;
+}
+
+.Search h6 {
+  margin-bottom: 1rem;
+}
+
+.Search .Select-control {
+  border-radius: 0;
+  border: 1px solid #D2D2D2;
+  margin-bottom: 2rem;
+}
+
+.Search .Select-menu-outer {
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid #D2D2D2;
+  border-top: 0;
+}
+
+.Search input.date {
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #D2D2D2;
+  margin-bottom: 1rem;
+  line-height: 34px;
+  font-size: 1rem;
+  padding: 0 10px;
+}
+
+
+.Search button {
+  margin-top: 1rem;
+}

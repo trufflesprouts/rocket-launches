@@ -2,7 +2,7 @@ const DATA = {
   agenciesDictionary: {
     spx: 'SpaceX',
     ula: 'United Launch Alliance',
-    nasa: 'National Aeronautics and Space Administration',
+    nasa: 'NASA',
     asa: 'Arianespace',
     isro: 'Indian Space Research Organization',
     casc: 'China Academy of Space Technology'

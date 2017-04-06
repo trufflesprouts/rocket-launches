@@ -41,13 +41,13 @@ class Header extends Component {
       <div className="Header">
         <header style={{transform:`translateX(-${navTranslateX}px)`}} id="header">
           <NavLink exact={true} to="/" onClick={() => this.handleClick('/')}><h6>All Launches</h6></NavLink>
-          <NavLink to="/my-feed" onClick={() => this.handleClick('/my-feed')}><h6>My Feed</h6></NavLink>
+
           <NavLink to="/search" onClick={() => this.handleClick('/search')}><h6>Search</h6></NavLink>
           <NavLink to="/settings" onClick={() => this.handleClick('/settings')}><h6>Settings</h6></NavLink>
         </header>
         <div className="pagination">
           <NavLink exact={true} to="/" onClick={() => this.handleClick('/')}></NavLink>
-          <NavLink to="/my-feed" onClick={() => this.handleClick('/my-feed')}></NavLink>
+
           <NavLink to="/search" onClick={() => this.handleClick('/search')}></NavLink>
           <NavLink to="/settings" onClick={() => this.handleClick('/settings')}></NavLink>
         </div>
@@ -61,5 +61,7 @@ Header.propTypes = {
   setCurrentPage: PropTypes.func.isRequired
 }
 
+// <NavLink to="/my-feed" onClick={() => this.handleClick('/my-feed')}><h6>My Feed</h6></NavLink>
+// <NavLink to="/my-feed" onClick={() => this.handleClick('/my-feed')}></NavLink>
 
 export default Header

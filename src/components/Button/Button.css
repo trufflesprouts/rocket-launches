@@ -1,0 +1,19 @@
+button {
+  background-color: white;
+  transition: 0.1s ease-out;
+}
+
+button.big {
+  margin: 0;
+  width: 100%;
+}
+
+button.blue {
+  color: #0589FF;
+  border: 1px solid #BBDEFF;
+}
+
+button.blue:hover {
+  background-color: #0589FF;
+  color: white;
+}
