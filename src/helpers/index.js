@@ -51,7 +51,7 @@ const h = (function() {
     if (startdate === 'today') {
       startdate = '2017-04-5'
     }
-    let url = `https://launchlibrary.et/1.2/launch?agency=${agency}&limit=${limit}&startdate=${startdate}`
+    let url = `https://launchlibrary.net/1.2/launch?agency=${agency}&limit=${limit}&startdate=${startdate}`
     if (enddate) {
       url += `&enddate=${enddate}`
     }
