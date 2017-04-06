@@ -1,0 +1,48 @@
+.LaunchBlock {
+  font-family: "Roboto Mono", "Source Code Pro", monospace;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  background-color: white;
+  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.05);
+}
+
+.LaunchBlock h5 {
+  margin-top: 0.65rem;
+  margin-bottom: 0.85rem;
+  text-decoration: underline;
+  /*text-decoration-style: ;*/
+  text-decoration-skip: ink;
+}
+
+.LaunchBlock p {
+  margin-bottom: 0.85rem;
+}
+
+.LaunchBlock.spx {
+  color: white;
+  background-color: #000835;
+}
+
+.LaunchBlock.spx h5 {
+  color: #00B7E7;
+}
+
+.LaunchBlock.ula h5 {
+  color: #FBC017;
+}
+
+.LaunchBlock.nasa h5 {
+  color: #FC3D21;
+}
+
+.LaunchBlock.asa h5 {
+  color: #45BFEF;
+}
+
+.LaunchBlock.isro h5 {
+  color: #F58220;
+}
+
+.LaunchBlock.CASC h5 {
+  color: #214583;
+}

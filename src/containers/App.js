@@ -16,7 +16,7 @@ class App extends Component {
 
     this.state = {
       currentPage: h.pageRefConverter(this.props.location.pathname) || 0,
-      limit: 2
+      limit: 15
     }
   }
 

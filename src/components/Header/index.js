@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { NavLink } from 'react-router-dom'
 import h from '../../helpers'
 import './Header.css'
@@ -55,5 +55,11 @@ class Header extends Component {
     )
   }
 }
+
+Header.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired
+}
+
 
 export default Header
