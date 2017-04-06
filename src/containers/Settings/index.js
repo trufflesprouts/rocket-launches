@@ -4,7 +4,9 @@ import React, { Component, PropTypes } from 'react'
 class Settings extends Component {
   render() {
     return (
-      <h1>settts</h1>
+      <div className={this.props.className}>
+        <h1>settts</h1>
+      </div>
     )
   }
 }

@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 
-
 class MyFeed extends Component {
   render() {
     return (
-      <h1>my fedd</h1>
+      <div className={this.props.className}>
+        <h1>MA Feeed</h1>
+      </div>
     )
   }
 }

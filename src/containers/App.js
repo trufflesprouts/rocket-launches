@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import h from '../helpers'
+import './App.css'
 
+import SliderNav from '../components/SliderNav'
 import Header from '../components/Header'
 import AllLaunches from './AllLaunches'
 import MyFeed from './MyFeed'
@@ -13,11 +15,14 @@ class App extends Component {
     super(props)
 
     this.state = {
+      currentPage: h.pageRefConverter(this.props.location.pathname) || 0,
       limit: 2
     }
   }
 
+
   setCurrentPage = (currentPage) => {
+    this.props.history.push(h.pageRefConverter(currentPage))
     this.setState({
       currentPage: currentPage
     })
@@ -25,23 +30,15 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Header/>
-          <Route exact={true} path="/" render={() => (
-            <AllLaunches limit={this.state.limit}/>
-          )}/>
-          <Route path="/my-feed" render={() => (
-            <MyFeed limit={this.state.limit}/>
-          )}/>
-          <Route path="/search" render={() => (
-            <Search limit={this.state.limit}/>
-          )}/>
-          <Route path="/settings" render={() => (
-            <Settings limit={this.state.limit}/>
-          )}/>
-        </div>
-      </Router>
+      <div className='App'>
+        <Header currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}/>
+        <SliderNav currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}>
+          <AllLaunches limit={this.state.limit}/>
+          <MyFeed limit={this.state.limit}/>
+          <Search limit={this.state.limit}/>
+          <Settings limit={this.state.limit}/>
+        </SliderNav>
+      </div>
     )
   }
 }

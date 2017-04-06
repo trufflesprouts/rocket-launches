@@ -4,11 +4,14 @@ import h from '../../helpers/index.js'
 
 
 class AllLaunches extends Component {
+  componentDidMount() {
+    h.fetchLaunches(this.props.limit,'ULA','today')
+  }
+
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         <h1>All Laucnhes</h1>
-        {h.fetchLaunches(this.props.limit,'ULA','today')}
       </div>
     )
   }
