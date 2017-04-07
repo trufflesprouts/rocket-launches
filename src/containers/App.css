@@ -1,5 +1,10 @@
 .App {
   margin: 0;
   padding-top: 2rem;
-  background-color: papayawhip;
+  transition: height 1s ease-in-out;
+  min-height: 100vh;
+}
+
+.papayawhip {
+  background-color: #fef3e1;
 }

@@ -96,10 +96,18 @@ const h = (function() {
     return result
   }
 
+  function getAbsoluteHeight(el) {
+    var styles = window.getComputedStyle(el)
+    var margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom'])
+
+    return Math.ceil(el.offsetHeight + margin)
+  }
+
   return {
     fetchMultipleLaunches: fetchMultipleLaunches,
     fetchLaunch: fetchLaunch,
-    pageRefConverter: pageRefConverter
+    pageRefConverter: pageRefConverter,
+    getAbsoluteHeight: getAbsoluteHeight
   }
 }())
 

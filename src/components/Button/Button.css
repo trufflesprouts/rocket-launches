@@ -1,19 +1,15 @@
 button {
   background-color: white;
   transition: 0.1s ease-out;
+  color: #000000;
+  border: 2px solid #fae0b3;
 }
 
 button.big {
-  margin: 0;
   width: 100%;
 }
 
-button.blue {
-  color: #0589FF;
-  border: 1px solid #BBDEFF;
-}
-
 button.blue:hover {
-  background-color: #0589FF;
+  background-color: #fae0b3;
   color: white;
 }

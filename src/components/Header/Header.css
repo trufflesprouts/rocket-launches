@@ -3,7 +3,6 @@
 }
 
 header {
-  /*margin: 2rem 1.7rem 0rem 1.7rem;*/
   width:400vw;
   transition: transform 400ms ease-in-out;
 }
@@ -11,6 +10,8 @@ header {
 header h6 {
   margin: 0;
   display: inline-block;
+  color: rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease-out;
 }
 
 header a {
@@ -19,8 +20,8 @@ header a {
   text-decoration: none;
 }
 
-.active {
-  color: red;
+a.active > h6 {
+  color: #FF00C0;
 }
 
 .pagination a {
@@ -29,9 +30,11 @@ header a {
   width: 0.35rem;
   height: 0.35rem;
   border-radius: 50%;
-  background-color: #DADADA;
+  background-color: rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease-out;
 }
 
 .pagination .active {
-  background-color: pink;
+  background-color: #FF00C0;
+  box-shadow: 0 0.2rem 0.4rem rgba(255, 0, 192, 0.35);
 }

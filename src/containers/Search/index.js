@@ -5,7 +5,6 @@ import moment from 'moment'
 
 
 import 'react-select/dist/react-select.css'
-import 'react-datepicker/dist/react-datepicker.css'
 import './Search.css'
 
 import h from '../../helpers/index.js'
@@ -25,7 +24,7 @@ class Search extends Component {
       value: null,
       loaded: true,
       clickedSearch: false,
-      launches: {}
+      launches: {},
     }
   }
 
@@ -71,14 +70,22 @@ class Search extends Component {
   }
 
   formatDateStart = (event) => {
+    let newDate = moment(event.target.value).format('YYYY-MM-DD')
+    if (newDate === 'Invalid date') {
+      newDate = moment().format('YYYY-MM-DD')
+    }
     this.setState({
-      startDate: moment(event.target.value).format('YYYY-MM-DD')
+      startDate: newDate
     })
   }
 
   formatDateEnd = (event) => {
+    let newDate = moment(event.target.value).format('YYYY-MM-DD')
+    if (newDate === 'Invalid date') {
+      newDate = moment().add(1, 'months').format('YYYY-MM-DD')
+    }
     this.setState({
-      endDate: moment(event.target.value).format('YYYY-MM-DD')
+      endDate: newDate
     })
   }
 
@@ -105,6 +112,7 @@ class Search extends Component {
             placeholder="Select your favourite(s)"
             options={this.state.options}
             onChange={this.handleSelectChange}
+            searchable={false}
           />
           <h6>Launch Window:</h6>
           <input className='date' value={this.state.startDate} onChange={this.handleChangeStart} onBlur={this.formatDateStart} type="text"/>
