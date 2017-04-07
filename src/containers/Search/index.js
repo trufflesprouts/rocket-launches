@@ -53,7 +53,7 @@ class Search extends Component {
         loaded: true,
         launches: launches,
         clickedSearch: true
-      })
+      }, this.props.setPageHeight)
     }
   }
 
@@ -118,11 +118,15 @@ class Search extends Component {
           <input className='date' value={this.state.startDate} onChange={this.handleChangeStart} onBlur={this.formatDateStart} type="text"/>
           <input className='date' value={this.state.endDate} onChange={this.handleChangeEnd} onBlur={this.formatDateEnd} type="text"/>
 
-          <Button onClick={this.onSearchClick} size='big' color='blue'>Search</Button>
+          <Button onClick={this.onSearchClick} size='big'>Search</Button>
         </div>
-
-        {!this.state.loaded && <ReactBodymovin options={bodymovinOptions}/>}
-        {this.state.clickedSearch && this.state.launches.map((launch, i) => <LaunchBlock key={i} className={launch.agencyAbbrev} agency={launch.agency} rocket={launch.rocket} name={launch.name} date={launch.date}/>)}
+        <div className='results-panel'>
+          <h6>Results:</h6>
+          <div>
+            {!this.state.loaded && <ReactBodymovin options={bodymovinOptions}/>}
+            {this.state.clickedSearch && this.state.launches.map((launch, i) => <LaunchBlock key={i} className={launch.agencyAbbrev} agency={launch.agency} rocket={launch.rocket} name={launch.name} date={launch.date}/>)}
+          </div>
+        </div>
       </div>
     )
   }

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import ReactBodymovin from 'react-bodymovin'
-import spinner from '../../data/loader.json'
 
 import h from '../../helpers/index.js'
 import LaunchBlock from '../../components/LaunchBlock'
+import spinner from '../../data/loader.json'
 
 
 class AllLaunches extends Component {
@@ -21,7 +21,8 @@ class AllLaunches extends Component {
       this.setState({
         loaded: true,
         launches: launches
-      })
+      }, this.props.setPageHeight)
+
     }
   }
 
@@ -32,7 +33,6 @@ class AllLaunches extends Component {
       prerender: true,
       animationData: spinner
     }
-
     return (
       <div className={this.props.className}>
         {!this.state.loaded && <ReactBodymovin options={bodymovinOptions}/>}

@@ -38,3 +38,9 @@ a.active > h6 {
   background-color: #FF00C0;
   box-shadow: 0 0.2rem 0.4rem rgba(255, 0, 192, 0.35);
 }
+
+@media screen and (min-width: 700px) {
+  #header {
+    transform: translateX(0px) !important;
+  }
+}

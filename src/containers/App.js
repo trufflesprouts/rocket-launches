@@ -26,20 +26,20 @@ class App extends Component {
     this.setPageHeight(this.state.currentPage)
   }
 
-  setPageHeight = (currentPage) => {
+  setPageHeight = () => {
+    const currentPage = this.state.currentPage
     const pageEls = Array.from(document.getElementsByClassName('NavSlider-body__panel'))
     const pageHeight = h.getAbsoluteHeight(pageEls[currentPage])
     this.setState({
-      appHeight: pageHeight + pageEls[currentPage].offsetTop + 40
+      appHeight: pageHeight + pageEls[currentPage].offsetTop + 20
     })
   }
 
   setCurrentPage = (currentPage) => {
     this.props.history.push(h.pageRefConverter(currentPage))
-    this.setPageHeight(currentPage)
     this.setState({
       currentPage: currentPage
-    })
+    }, this.setPageHeight)
   }
 
   setLimit = (newLimit) => {
@@ -58,23 +58,17 @@ class App extends Component {
 
   render() {
     return (
-      <div className={`App ${this.state.theme}`} style={{height: `${this.state.appHeight}px`}}>
-        <Header
-          currentPage={this.state.currentPage}
-          setCurrentPage={this.setCurrentPage}/>
-        <SliderNav
-          currentPage={this.state.currentPage}
-          setCurrentPage={this.setCurrentPage}>
-          <AllLaunches
-            limit={this.state.limit}/>
-          <Search
-            limit={this.state.limit}/>
-          <Settings
-            limit={this.state.limit}
-            setLimit={this.setLimit}
-            theme={this.state.theme}
-            setTheme={this.setTheme}/>
-        </SliderNav>
+      <div className={`App-container ${this.state.theme}`}>
+        <div className={'App'} style={{
+          height: `${this.state.appHeight}px`
+        }}>
+          <Header currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}/>
+          <SliderNav currentPage={this.state.currentPage} setCurrentPage={this.setCurrentPage}>
+            <AllLaunches setPageHeight={this.setPageHeight} limit={this.state.limit}/>
+            <Search setPageHeight={this.setPageHeight} limit={this.state.limit}/>
+            <Settings limit={this.state.limit} setLimit={this.setLimit} theme={this.state.theme} setTheme={this.setTheme}/>
+          </SliderNav>
+        </div>
       </div>
     )
   }

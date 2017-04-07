@@ -1,26 +1,42 @@
 .LaunchBlock {
   font-family: "Roboto Mono", "Source Code Pro", monospace;
-  padding: 1.25rem;
+  padding: 0.7rem 1.25rem;
   margin-bottom: 2rem;
   background-color: white;
-  box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.05);
+  border: 2px solid #f4ddb9;
+  /*box-shadow: 0 0.4rem 2rem rgba(0, 0, 0, 0.05);*/
 }
 
 .LaunchBlock h5 {
   margin-top: 0.65rem;
   margin-bottom: 0.85rem;
   text-decoration: underline;
-  /*text-decoration-style: ;*/
   text-decoration-skip: ink;
 }
+
+
+@media screen and (min-width: 900px) {
+  .LaunchBlock, .LaunchBlock:before, .LaunchBlock:after {
+    box-sizing: border-box;
+  }
+  .LaunchBlock {
+    width: 100%;
+    margin: 0 0 2em;
+    display: inline-block;
+  }
+  .LaunchBlock h5 {
+    font-size: 1.6rem;
+  }
+}
+
 
 .LaunchBlock p {
   margin-bottom: 0.85rem;
 }
 
 .LaunchBlock.spx {
-  color: white;
-  background-color: #000835;
+  /*color: white;*/
+  /*background-color: #000835;*/
 }
 
 .LaunchBlock.spx h5 {

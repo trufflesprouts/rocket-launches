@@ -1,10 +1,38 @@
 .search-panel {
-  /*padding: 1.5rem;*/
-  /*border: 1px solid #D2D2D2;*/
-  /*box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.08);*/
   margin-bottom: 5rem;
 }
 
+
+
 .Search button {
   margin-top: 1rem;
+}
+
+
+@media screen and (min-width: 900px) {
+  .search-panel {
+    width: 38%;
+    margin-right: 4%;
+    float: left;
+  }
+  .results-panel {
+    width: 58%;
+    float: left;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .search-panel {
+    width: 28%;
+    margin-right: 6%;
+    float: left;
+  }
+  .results-panel {
+    width: 66%;
+    float: left;
+  }
+  .results-panel > div {
+    column-count: 2;
+    column-gap: 2rem;
+  }
 }

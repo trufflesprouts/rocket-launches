@@ -41,7 +41,7 @@ p {
 input {
   box-sizing: border-box;
   width: 100%;
-  border: 2px solid #fae0b3;
+  border: 2px solid #f4ddb9;
   background-color: rgba(255, 255, 255, 1);
   margin-bottom: 1rem;
   line-height: 34px;
@@ -52,7 +52,7 @@ input {
 
 .Select-control {
   border-radius: 0;
-  border: 2px solid #fae0b3;
+  border: 2px solid #f4ddb9;
   margin-bottom: 2rem;
 }
 
@@ -62,7 +62,7 @@ input {
 }
 
 .is-open > .Select-control {
-  border-color: #fae0b3;
+  border-2olor: #f4ddb9;
 }
 
 .Select-option.is-selected, .Select-option.is-focused {
@@ -72,6 +72,6 @@ input {
 .Select-menu-outer {
   margin: 0;
   border-radius: 0;
-  border: 2px solid #fae0b3;
+  border: 2px solid #f4ddb9;
   border-top: 0;
 }
