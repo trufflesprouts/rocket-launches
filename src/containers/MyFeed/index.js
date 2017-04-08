@@ -42,7 +42,6 @@ class MyFeed extends Component {
   }
 
   handleSelectChange = (value) => {
-    console.log('You\'ve selected:', value)
     this.setState({value: value})
   }
 

@@ -30,7 +30,6 @@ class App extends Component {
     const currentPage = this.state.currentPage
     const pageEls = Array.from(document.getElementsByClassName('NavSlider-body__panel'))
     const pageHeight = h.getAbsoluteHeight(pageEls[currentPage])
-    console.log(pageHeight);
     this.setState({
       appHeight: pageHeight + pageEls[currentPage].offsetTop
     })
