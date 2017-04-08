@@ -1,7 +1,7 @@
 button {
   background-color: white;
   transition: 0.1s ease-out;
-  border: 2px solid #f4ddb9;
+  border: 2px solid #D2D2D2;
 }
 
 button.big {
@@ -10,5 +10,5 @@ button.big {
 
 button:hover {
   cursor: pointer;
-  box-shadow: 0 6px 1rem rgba(244, 206, 183, 0.45);
+  box-shadow: 0 6px 1rem rgba(0, 0, 0, 0.03);
 }

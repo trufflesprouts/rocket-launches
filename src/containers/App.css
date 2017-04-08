@@ -1,12 +1,17 @@
-.App {
-  margin: 0;
-  padding-top: 2rem;
-  transition: all 1s ease-in-out;
+.App-container {
   min-height: 100vh;
+  background-color: #FBFBFB;
 }
 
 .App-container.papayawhip {
   background-color: #fef3e1;
+}
+
+.App {
+  margin: 0;
+  padding-top: 2rem;
+  transition: all 1s ease-in-out;
+  /*min-height: 100vh;*/
 }
 
 @media screen and (min-width: 700px) {

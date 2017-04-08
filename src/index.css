@@ -41,7 +41,7 @@ p {
 input {
   box-sizing: border-box;
   width: 100%;
-  border: 2px solid #f4ddb9;
+  border: 2px solid #D2D2D2;
   background-color: rgba(255, 255, 255, 1);
   margin-bottom: 1rem;
   line-height: 34px;
@@ -52,26 +52,39 @@ input {
 
 .Select-control {
   border-radius: 0;
-  border: 2px solid #f4ddb9;
+  border: 2px solid #D2D2D2;
   margin-bottom: 2rem;
 }
 
 .is-focused:not(.is-open) > .Select-control {
-  border-color: #ffdb9c;
-  box-shadow: inset 0 1px 1px #ffdb9c;
+  border-color: #bdbcbc;
+  box-shadow: inset 0 1px 1px #bdbcbc;
 }
 
 .is-open > .Select-control {
-  border-2olor: #f4ddb9;
+  border-2olor: #D2D2D2;
 }
 
 .Select-option.is-selected, .Select-option.is-focused {
-  background-color: #fff6e7;
+  background-color: #f4f4f4;
 }
 
 .Select-menu-outer {
   margin: 0;
   border-radius: 0;
-  border: 2px solid #f4ddb9;
+  border: 2px solid #D2D2D2;
   border-top: 0;
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
