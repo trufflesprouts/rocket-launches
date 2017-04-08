@@ -6,7 +6,7 @@ const LaunchBlock = (props) => {
   return (
     <Link to={`/launch/${props.agencyAbbrev}/${props.id}`}>
       <div className={`LaunchBlock ${props.className}`}>
-        <h5>{props.agency}</h5>
+        <h6>{props.agency}</h6>
         <p>{props.rocket}</p>
         <p>{props.name}</p>
         <p>{props.date}</p>

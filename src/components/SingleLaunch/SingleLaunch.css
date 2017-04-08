@@ -25,6 +25,12 @@
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
+@media screen and (min-width: 900px) {
+  .launch-details {
+    border-radius: 0.3rem;
+  }
+}
+
 .launch-details h6, .launch-details h5 {
   line-height: 100%;
   text-decoration: underline;
