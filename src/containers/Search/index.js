@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import ReactBodymovin from 'react-bodymovin'
 import Select from 'react-select'
 import moment from 'moment'
 
@@ -7,12 +6,11 @@ import moment from 'moment'
 import 'react-select/dist/react-select.css'
 import './Search.css'
 
+import LaunchGrid from '../../components/LaunchGrid'
+import Button from '../../components/Button'
 import h from '../../helpers/index.js'
 import DATA from '../../data'
-import spinner from '../../data/loader.json'
 
-import LaunchBlock from '../../components/LaunchBlock'
-import Button from '../../components/Button'
 
 class Search extends Component {
   constructor(props) {
@@ -22,9 +20,9 @@ class Search extends Component {
       endDate: moment().add(1, 'months').format('YYYY-MM-DD'),
       options: [],
       value: null,
-      loaded: true,
+      loaded: false,
       clickedSearch: false,
-      launches: {},
+      launches: [],
     }
   }
 
@@ -94,13 +92,6 @@ class Search extends Component {
   }
 
   render() {
-    const bodymovinOptions = {
-      loop: true,
-      autoplay: true,
-      prerender: true,
-      animationData: spinner
-    }
-
     return (
       <div className={`Search ${this.props.className}`}>
         <div className='search-panel'>
@@ -122,10 +113,7 @@ class Search extends Component {
         </div>
         <div className='results-panel'>
           <h6>Results:</h6>
-          <div>
-            {!this.state.loaded && <ReactBodymovin options={bodymovinOptions}/>}
-            {this.state.clickedSearch && this.state.launches.map((launch, i) => <LaunchBlock key={i} className={launch.agencyAbbrev} agency={launch.agency} rocket={launch.rocket} name={launch.name} date={launch.date}/>)}
-          </div>
+          <LaunchGrid loaded={this.state.loaded} launches={this.state.launches}/>
         </div>
       </div>
     )

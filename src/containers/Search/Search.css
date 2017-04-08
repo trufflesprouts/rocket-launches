@@ -19,6 +19,10 @@
     width: 58%;
     float: left;
   }
+  .results-panel > div {
+    column-count: 1;
+    column-gap: 0;
+  }
 }
 
 @media screen and (min-width: 1000px) {

@@ -1,0 +1,46 @@
+.disableBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.launch-details {
+  box-sizing: border-box;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-family: "Roboto Mono", "Source Code Pro", monospace;
+  padding: 2rem;
+  width: 100vw;
+  max-width: 600px;
+  max-height: 100vh;
+  overflow: scroll;
+  color: white;
+  background-color: #000835;
+}
+
+.launch-details h6, .launch-details h5 {
+  line-height: 100%;
+  text-decoration: underline;
+}
+
+.launch-details h6 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.launch-details img {
+  cursor: pointer;
+  float: right;
+  padding-top: 0.4rem;
+  width: 1.6rem;
+  margin-left: 1rem;
+}
+
+.launch-details img:hover {
+  opacity: 0.7;
+}

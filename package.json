@@ -22,7 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "deploy": "npm run build && surge -p build -d tr-rockets.surge.sh",
+    "deploy": "npm run build && mv build/index.html build/200.html && surge -p build -d tr-rockets.surge.sh",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 import App from './containers/App'
+import SingleLaunch from './components/SingleLaunch'
 
 import './index.css'
 
@@ -10,7 +11,10 @@ import './index.css'
 const Index = () => {
   return (
     <Router>
-      <Route path="/" component={App}/>
+      <div>
+        <Route path="/" component={App}/>
+        <Route path="/launch/:agency/:id" component={SingleLaunch}/>
+      </div>
     </Router>
   )
 }

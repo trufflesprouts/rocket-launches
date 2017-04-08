@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router-dom'
 import './LaunchBlock.css'
 
 const LaunchBlock = (props) => {
   return (
-    <div className={`LaunchBlock ${props.className}`}>
-      <h5>{props.agency}</h5>
-      <p>{props.rocket}</p>
-      <p>{props.name}</p>
-      <p>{props.date}</p>
-    </div>
+    <Link to={`/launch/${props.agencyAbbrev}/${props.id}`}>
+      <div className={`LaunchBlock ${props.className}`}>
+        <h5>{props.agency}</h5>
+        <p>{props.rocket}</p>
+        <p>{props.name}</p>
+        <p>{props.date}</p>
+      </div>
+    </Link>
   )
 }
 
+
 LaunchBlock.propTypes = {
+  showDetailsCard: PropTypes.func.isRequired,
   agency: PropTypes.string.isRequired,
   rocket: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,

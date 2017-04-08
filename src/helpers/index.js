@@ -20,6 +20,7 @@ const h = (function() {
     let rocketANDname = dataCopy.name.split(' | ')
     let dateANDtime = dataCopy.net.split(',')
     let newLaunch = {
+      id: dataCopy.id,
       agencyAbbrev: agency,
       agency: DATA.agenciesDictionary[agency],
       net: dataCopy.net,
@@ -29,32 +30,31 @@ const h = (function() {
     }
     return newLaunch
   }
-  function fetchMultipleLaunches(cb,limit, agencies, startdate, enddate) {
-    for (let i = 0; i < agencies.length; i++) {
-      fetchLaunch(launchCombiner,limit/agencies.length, agencies[i], startdate, enddate)
+
+  function cleanLaunchDetailsData(data,agency) {
+    const dataCopy = Object.assign({}, data, {}).launches[0]
+    let missionName = dataCopy.name.split(' | ')[1]
+    let missionDescription = 'No Description'
+    if (dataCopy.missions[0]) {
+      missionName = dataCopy.missions[0].name
+      missionDescription = dataCopy.missions[0].description
     }
-    let callbacksDone = 0
-    let combinedResult = []
-    function launchCombiner(data, agency) {
-      callbacksDone += 1
-      for (let i = 0; i < data.launches.length; i++) {
-        const launchCleaned = cleanLaunchData(data.launches[i], agency)
-        combinedResult.push(launchCleaned)
-      }
-      if (callbacksDone === agencies.length) {
-        // Final callback, returns to the original fetcher
-        cb(sortLaunches(combinedResult))
-      }
+    let newLaunch = {
+      agency: DATA.agenciesDictionary[agency],
+      agencyAbbrev: agency,
+      id: dataCopy.id,
+      rocket:dataCopy.rocket.name,
+      mission: missionName,
+      missionDescription: missionDescription,
+      date: dataCopy.net,
+      net: dataCopy.net,
+      location: dataCopy.location.name
     }
+    return newLaunch
   }
-  function fetchLaunch(cb,limit, agency, startdate, enddate) {
-    if (startdate === 'today') {
-      startdate = '2017-04-5'
-    }
-    let url = `https://launchlibrary.net/1.2/launch?agency=${agency}&limit=${limit}&startdate=${startdate}`
-    if (enddate) {
-      url += `&enddate=${enddate}`
-    }
+
+
+  function fetcher(cb,url,agency) {
     fetch(url)
     .then(
       function(response) {
@@ -73,6 +73,49 @@ const h = (function() {
       console.log('Fetch Error :-S', err)
     })
   }
+
+
+  function fetchMultipleLaunches(cb,limit, agencies, startdate, enddate) {
+    for (let i = 0; i < agencies.length; i++) {
+      fetchLaunch(launchCombiner,limit/agencies.length, agencies[i], startdate, enddate)
+    }
+    let callbacksDone = 0
+    let combinedResult = []
+    function launchCombiner(data, agency) {
+      callbacksDone += 1
+      for (let i = 0; i < data.launches.length; i++) {
+        const launchCleaned = cleanLaunchData(data.launches[i], agency)
+        combinedResult.push(launchCleaned)
+      }
+      if (callbacksDone === agencies.length) {
+        // Final callback, returns to the original fetcher
+        cb(sortLaunches(combinedResult))
+      }
+    }
+  }
+
+
+  function fetchLaunch(cb,limit, agency, startdate, enddate) {
+    if (startdate === 'today') {
+      startdate = '2017-04-5'
+    }
+    let url = `https://launchlibrary.net/1.2/launch?agency=${agency}&limit=${limit}&startdate=${startdate}`
+    if (enddate) {
+      url += `&enddate=${enddate}`
+    }
+    fetcher(cb,url,agency)
+  }
+
+
+  function fetchLaunchDetails(cb,id,agency) {
+    let url = `https://launchlibrary.net/1.2/launch/${id}`
+    fetcher(handleData,url,agency)
+    function handleData(data) {
+      const cleanedData = cleanLaunchDetailsData(data, agency)
+      cb(cleanedData)
+    }
+  }
+
 
   function pageRefConverter(val) {
     let result
@@ -105,7 +148,7 @@ const h = (function() {
 
   return {
     fetchMultipleLaunches: fetchMultipleLaunches,
-    fetchLaunch: fetchLaunch,
+    fetchLaunchDetails: fetchLaunchDetails,
     pageRefConverter: pageRefConverter,
     getAbsoluteHeight: getAbsoluteHeight
   }

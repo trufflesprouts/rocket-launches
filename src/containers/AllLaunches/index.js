@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import ReactBodymovin from 'react-bodymovin'
 
 import h from '../../helpers/index.js'
-import LaunchBlock from '../../components/LaunchBlock'
-import spinner from '../../data/loader.json'
+import LaunchGrid from '../../components/LaunchGrid'
 
 
 class AllLaunches extends Component {
@@ -11,7 +9,7 @@ class AllLaunches extends Component {
     super(props)
     this.state = {
       loaded: false,
-      launches: {}
+      launches: []
     }
   }
 
@@ -27,16 +25,9 @@ class AllLaunches extends Component {
   }
 
   render() {
-    const bodymovinOptions = {
-      loop: true,
-      autoplay: true,
-      prerender: true,
-      animationData: spinner
-    }
     return (
       <div className={this.props.className}>
-        {!this.state.loaded && <ReactBodymovin options={bodymovinOptions}/>}
-        {this.state.loaded && this.state.launches.map((launch, i) => <LaunchBlock key={i} className={launch.agencyAbbrev} agency={launch.agency} rocket={launch.rocket} name={launch.name} date={launch.date}/>)}
+        <LaunchGrid loaded={this.state.loaded} launches={this.state.launches}/>
       </div>
     )
   }

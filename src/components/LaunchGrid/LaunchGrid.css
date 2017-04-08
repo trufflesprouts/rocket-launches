@@ -1,0 +1,17 @@
+.LaunchGrid > a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 900px) {
+  .LaunchGrid {
+    column-count: 3;
+    column-gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 1160px) {
+  .LaunchGrid {
+    column-count: 4;
+    column-gap: 2rem;
+  }
+}
