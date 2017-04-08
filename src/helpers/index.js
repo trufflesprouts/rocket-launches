@@ -120,7 +120,7 @@ const h = (function() {
 
   function pageRefConverter(val) {
     let result
-    if (Number.isInteger(val)) {
+    if (typeof(val) === 'number') {
       if (val === 0) {
         result = '/'
       } else if (val === 1) {
