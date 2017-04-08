@@ -8,6 +8,7 @@ const Settings = (props) => {
 
   const options = [
     { value: 'papayawhip', label: 'Papayawhip' },
+    { value: 'grey', label: 'Grey' },
     { value: 'white', label: 'White' }
   ]
 

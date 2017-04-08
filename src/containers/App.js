@@ -18,7 +18,7 @@ class App extends Component {
       appHeight: '',
       currentPage: h.pageRefConverter(this.props.location.pathname) || 0,
       limit: 15,
-      theme: 'white'
+      theme: 'grey'
     }
   }
 
