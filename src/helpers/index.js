@@ -77,7 +77,7 @@ const h = (function() {
 
   function fetchMultipleLaunches(cb,limit, agencies, startdate, enddate) {
     for (let i = 0; i < agencies.length; i++) {
-      fetchLaunch(launchCombiner,limit/agencies.length, agencies[i], startdate, enddate)
+      fetchLaunch(launchCombiner,limit, agencies[i], startdate, enddate)
     }
     let callbacksDone = 0
     let combinedResult = []
@@ -89,7 +89,8 @@ const h = (function() {
       }
       if (callbacksDone === agencies.length) {
         // Final callback, returns to the original fetcher
-        cb(sortLaunches(combinedResult))
+        const slicedLaunches = sortLaunches(combinedResult).slice(0,limit)
+        cb(slicedLaunches)
       }
     }
   }

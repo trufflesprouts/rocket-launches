@@ -23,7 +23,20 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const localLimitRef = localStorage.getItem('limit')
+    const localThemeRef = localStorage.getItem('theme')
+    if (localThemeRef) {
+      this.setState({
+        limit: JSON.parse(localLimitRef),
+        theme: JSON.parse(localThemeRef)
+      })
+    }
     this.setPageHeight(this.state.currentPage)
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('limit', JSON.stringify(nextState.limit))
+    localStorage.setItem('theme', JSON.stringify(nextState.theme))
   }
 
   setPageHeight = () => {
@@ -31,7 +44,7 @@ class App extends Component {
     const pageEls = Array.from(document.getElementsByClassName('NavSlider-body__panel'))
     const pageHeight = h.getAbsoluteHeight(pageEls[currentPage])
     this.setState({
-      appHeight: pageHeight + pageEls[currentPage].offsetTop
+      appHeight: pageHeight + pageEls[currentPage].offsetTop + 20
     })
   }
 
