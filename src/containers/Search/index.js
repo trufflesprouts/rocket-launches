@@ -21,6 +21,7 @@ class Search extends Component {
       options: [],
       value: null,
       loaded: false,
+      searching: false,
       clickedSearch: false,
       launches: [],
     }
@@ -42,7 +43,8 @@ class Search extends Component {
 
   onSearchClick = () => {
     this.setState({
-      loaded: false
+      loaded: false,
+      searching: true
     })
     const agencies = this.state.value.split(',')
     h.fetchMultipleLaunches(setLaunchState.bind(this),this.props.limit, agencies, this.state.startDate, this.state.endDate)
@@ -113,7 +115,7 @@ class Search extends Component {
         </div>
         <div className='results-panel'>
           <h6>Results:</h6>
-          <LaunchGrid loaded={this.state.loaded} launches={this.state.launches}/>
+          <LaunchGrid searching={this.state.searching} loaded={this.state.loaded} launches={this.state.launches}/>
         </div>
       </div>
     )

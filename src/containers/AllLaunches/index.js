@@ -9,6 +9,7 @@ class AllLaunches extends Component {
     super(props)
     this.state = {
       loaded: false,
+      searching: true,
       launches: []
     }
   }
@@ -27,7 +28,7 @@ class AllLaunches extends Component {
   render() {
     return (
       <div className={this.props.className}>
-        <LaunchGrid loaded={this.state.loaded} launches={this.state.launches}/>
+        <LaunchGrid searching={this.state.searching} loaded={this.state.loaded} launches={this.state.launches}/>
       </div>
     )
   }

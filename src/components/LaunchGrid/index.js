@@ -41,7 +41,7 @@ class LaunchGrid extends Component {
     return (
       <div className='LaunchGrid'>
         {this.state.detailsShown && <SingleLaunch id={this.state.detailsId} agency={this.state.detailsAgency} initialPlacement={this.state.detailsInitialPlacement}/>}
-        {!this.props.loaded && <ReactBodymovin options={bodymovinOptions}/>}
+        {!this.props.loaded && this.props.searching && <ReactBodymovin options={bodymovinOptions}/>}
         {this.props.loaded && this.props.launches.map((launch, i) => (
           <LaunchBlock
             key={launch.id}
