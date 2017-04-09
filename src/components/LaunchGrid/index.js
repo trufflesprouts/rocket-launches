@@ -13,7 +13,6 @@ class LaunchGrid extends Component {
       detailsShown: false,
       detailsId: null,
       detailsAgency: null,
-      detailsInitialPlacement: null
     }
   }
 
@@ -22,12 +21,6 @@ class LaunchGrid extends Component {
       detailsShown: true,
       detailsId: id,
       detailsAgency: agency
-    })
-  }
-
-  elementPlacement = (dimensions) => {
-    this.setState({
-      detailsInitialPlacement: dimensions
     })
   }
 
@@ -40,7 +33,7 @@ class LaunchGrid extends Component {
     }
     return (
       <div className='LaunchGrid'>
-        {this.state.detailsShown && <SingleLaunch id={this.state.detailsId} agency={this.state.detailsAgency} initialPlacement={this.state.detailsInitialPlacement}/>}
+        {this.state.detailsShown && <SingleLaunch id={this.state.detailsId} agency={this.state.detailsAgency}/>}
         {!this.props.loaded && this.props.searching && <ReactBodymovin options={bodymovinOptions}/>}
         {this.props.loaded && this.props.launches.map((launch, i) => (
           <LaunchBlock
@@ -53,7 +46,6 @@ class LaunchGrid extends Component {
             name={launch.name}
             date={launch.date}
             showDetailsCard={this.showDetailsCard}
-            elementPlacement={this.elementPlacement}
             />
         ))}
       </div>
