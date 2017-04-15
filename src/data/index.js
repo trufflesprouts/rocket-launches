@@ -5,8 +5,8 @@ const DATA = {
     nasa: 'NASA',
     asa: 'Arianespace',
     isro: 'Indian Space Research Organization',
-    casc: 'China Academy of Space Technology'
-  }
-}
+    casc: 'China Academy of Space Technology',
+  },
+};
 
-export default DATA
+export default DATA;

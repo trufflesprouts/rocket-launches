@@ -1,33 +1,40 @@
-import React, { Component } from 'react'
-import './SingleLaunch.css'
-import closeBtn from './close.svg'
-import h from '../../helpers/index.js'
+import React, { Component } from 'react';
+import './SingleLaunch.css';
+import closeBtn from './close.svg';
+import h from '../../helpers/index.js';
 
 class SingleLaunch extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       loaded: false,
-      launchDetails: {}
-    }
+      launchDetails: {},
+    };
   }
 
   componentDidMount() {
-    h.fetchLaunchDetails(setLaunchState.bind(this), this.props.match.params.id, this.props.match.params.agency)
+    h.fetchLaunchDetails(
+      setLaunchState.bind(this),
+      this.props.match.params.id,
+      this.props.match.params.agency,
+    );
     function setLaunchState(newLaunchDetails) {
       this.setState({
         loaded: true,
-        launchDetails: newLaunchDetails
-      })
-
+        launchDetails: newLaunchDetails,
+      });
     }
   }
 
   render() {
     return (
-      <div className='disableBackground'>
-        <div className={`launch-details ${this.state.launchDetails.agencyAbbrev}`}>
-          <div onClick={this.props.history.goBack}><img src={closeBtn} alt="x"/></div>
+      <div className="disableBackground">
+        <div
+          className={`launch-details ${this.state.launchDetails.agencyAbbrev}`}
+        >
+          <div onClick={this.props.history.goBack}>
+            <img src={closeBtn} alt="x" />
+          </div>
           <h5>{this.state.launchDetails.agency}</h5>
           <h6>Rocket</h6>
           <p>{this.state.launchDetails.rocket}</p>
@@ -41,8 +48,8 @@ class SingleLaunch extends Component {
           <p>{this.state.launchDetails.location}</p>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default SingleLaunch
+export default SingleLaunch;
