@@ -1,6 +1,6 @@
 {
-    "name": "SPACESHIP!!!!!!!!!!!",
-    "short_name": "SPACESHIP!",
+    "name": "Rocket Launches",
+    "short_name": "Rockets",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -13,8 +13,8 @@
             "type": "image/png"
         }
     ],
-    "start_url": "./",
     "theme_color": "#ff00b9",
     "background_color": "#ff00b9",
-    "display": "standalone"
+    "display": "standalone",
+    "orientation": "portrait"
 }
