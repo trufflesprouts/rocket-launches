@@ -45,13 +45,13 @@ class Header extends Component {
           id="header"
         >
           <NavLink exact={true} to="/" onClick={() => this.handleClick('/')}>
-            <h6>All Launches</h6>
+            <h6 className='no-select'>All Launches</h6>
           </NavLink>
           <NavLink to="/search" onClick={() => this.handleClick('/search')}>
-            <h6>Search</h6>
+            <h6 className='no-select'>Search</h6>
           </NavLink>
           <NavLink to="/settings" onClick={() => this.handleClick('/settings')}>
-            <h6>Settings</h6>
+            <h6 className='no-select'>Settings</h6>
           </NavLink>
         </header>
         <div className="pagination">

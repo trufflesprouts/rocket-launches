@@ -13,6 +13,10 @@
   box-shadow: 0 0.65rem 0.8rem rgba(0, 0, 0, 0.14);
 }
 
+.LaunchBlock:active {
+  transform: scale(0.98);
+}
+
 .LaunchBlock h6 {
   margin-top: 0.65rem;
   margin-bottom: 0.85rem;
