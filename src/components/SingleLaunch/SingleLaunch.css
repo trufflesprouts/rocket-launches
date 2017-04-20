@@ -52,3 +52,7 @@
 .launch-details img:hover {
   opacity: 0.7;
 }
+
+.launch-details img:active {
+  transform: scale(0.9);
+}

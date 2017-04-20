@@ -33,7 +33,7 @@ class SingleLaunch extends Component {
           className={`launch-details ${this.state.launchDetails.agencyAbbrev}`}
         >
           <div onClick={this.props.history.goBack}>
-            <img src={closeBtn} alt="x" />
+            <img src={closeBtn} className="no-select" alt="x" />
           </div>
           <h5>{this.state.launchDetails.agency}</h5>
           <h6>Rocket</h6>
