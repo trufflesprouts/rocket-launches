@@ -94,7 +94,7 @@ const h = (function() {
 
   function fetchLaunch(cb, limit, agency, startdate, enddate) {
     if (startdate === 'today') {
-      startdate = '2017-04-5';
+      startdate = moment().format('YYYY-MM-DD');
     }
     let url = `https://launchlibrary.net/1.2/launch?agency=${agency}&limit=${limit}&startdate=${startdate}`;
     if (enddate) {
